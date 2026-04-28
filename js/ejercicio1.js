@@ -41,6 +41,6 @@ function promedioNotas() {
   sumaTotal = sumar(notas);
   promedioNotas = promedio(notas);
 
-  console.log(`Suma total: ${sumar(notas)}`)
-  console.log(`Promedio ${promedio(notas)}`);
+  console.log(`Suma total: ${sumaTotal}`)
+  console.log(`Promedio ${promedioNotas}`);
 }
