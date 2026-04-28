@@ -116,19 +116,23 @@ body {
 }
 
 .btn-test,
-.btn-print {
+.btn-print,
+.btn-trigger,
+.btn-show {
   background: rgba(255, 255, 255, 0.05);
   color: white;
   border: 1px solid var(--glass-border);
 }
 
 .btn-test:hover,
-.btn-print:hover {
+.btn-print:hover,
+.btn-trigger:hover,
+.btn-show:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: white;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .glass-card {
     padding: 30px 20px;
   }
