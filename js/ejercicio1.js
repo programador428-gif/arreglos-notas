@@ -22,4 +22,22 @@ function probarAgregar() {
 
 function agregarNota(nota) {
   notas.push(nota);
+  if (notas.length === 5) {
+    promedioNotas();
+  }
+  if (notas.length > 5) {
+    return;
+  }
+}
+
+function promedioNotas() {
+  let sumaTotal = 0;
+  for (let i = 0; i < notas.length; i++) {
+    let valorActual = notas[i];
+    let posicionActual = i + 1;
+    console.log(`${posicionActual}. Nota: ${valorActual}`);
+  }
+
+  console.log(`Suma total: ${sumar(notas)}`)
+  console.log(`Promedio ${promedio(notas)}`);
 }

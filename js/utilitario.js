@@ -1,3 +1,6 @@
+const promedio = (arr) => sumar(arr) / arr.length;
+const sumar = (...nums) => nums.flat().reduce((acc, n) => acc + n, 0);
+
 function recuperaraTexto(idComponente) {
   let componente;
   let valorIngresado;
