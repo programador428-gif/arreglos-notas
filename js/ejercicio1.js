@@ -1,4 +1,6 @@
 let notas = [];
+let sumaTotal;
+let promedioTotal;
 
 function agregarElemento() {
   notas.push(5);
@@ -31,12 +33,13 @@ function agregarNota(nota) {
 }
 
 function promedioNotas() {
-  let sumaTotal = 0;
   for (let i = 0; i < notas.length; i++) {
     let valorActual = notas[i];
     let posicionActual = i + 1;
     console.log(`${posicionActual}. Nota: ${valorActual}`);
   }
+  sumaTotal = sumar(notas);
+  promedioNotas = promedio(notas);
 
   console.log(`Suma total: ${sumar(notas)}`)
   console.log(`Promedio ${promedio(notas)}`);
