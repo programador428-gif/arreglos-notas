@@ -16,9 +16,8 @@ function recorrerArreglo() {
   }
 }
 
-function probarAgregar() {
-  let notaRecuperada;
-  notaRecuperada = recuperarInt('txtNota');
+function agregarNotas() {
+  let notaRecuperada = recuperarInt('txtNota');
   agregarNota(notaRecuperada);
 }
 
@@ -77,7 +76,16 @@ function generarTabla() {
 
 function mostrarNota() {
   let cpmTabla = document.getElementById('divTabla');
-  let contenidoTabla = '<table>';
+  let contenidoTabla = `
+    <table>
+      <thead>
+        <tr>
+          <th>Nota Registrada</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
   let miNota;
   for (let i = 0; i < notas.length; i++) {
     miNota = notas[i];
@@ -85,8 +93,9 @@ function mostrarNota() {
       <tr>
         <td>${miNota}</td>
       </tr>
-    `
+    `;
   }
-  contenidoTabla += '</table>';
+
+  contenidoTabla += '</tbody></table>';
   cpmTabla.innerHTML = contenidoTabla;
 }
