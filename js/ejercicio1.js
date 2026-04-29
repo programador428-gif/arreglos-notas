@@ -1,6 +1,6 @@
 let notas = [];
-let sumaTotal;
-let promedioTotal;
+let sumaTotal = 0;
+let promedioTotal = 0;
 
 function agregarElemento() {
   notas.push(5);
@@ -18,84 +18,67 @@ function recorrerArreglo() {
 
 function agregarNotas() {
   let notaRecuperada = recuperarInt('txtNota');
-  agregarNota(notaRecuperada);
+
+  if (!isNaN(notaRecuperada)) {
+    if (notas.length < 5) {
+      notas.push(notaRecuperada);
+    }
+
+    if (notas.length === 5) {
+      calcularPromedio();
+    }
+
+    mostrarNota();
+    limpiarInput('txtNota');
+  }
 }
 
-function agregarNota(nota) {
-  notas.push(nota);
-  if (notas.length === 5) {
-    promedioNotas();
-  }
-  if (notas.length > 5) {
-    return;
-  }
-}
-
-function promedioNotas() {
-  for (let i = 0; i < notas.length; i++) {
-    let valorActual = notas[i];
-    let posicionActual = i + 1;
-    console.log(`${posicionActual}. Nota: ${valorActual}`);
-  }
+function calcularPromedio() {
   sumaTotal = sumar(notas);
-  promedioNotas = promedio(notas);
-
-  console.log(`Suma total: ${sumaTotal}`)
-  console.log(`Promedio ${promedioNotas}`);
-}
-
-function generarTabla() {
-  let contenidoTabla = '';
-  let cpmTabla = document.getElementById('divTabla');
-  contenidoTabla += `
-    <table>
-    <tr>
-      <th>Cabecera 1</th>
-      <th>Cabecera 2</th>
-      <th>Cabecera 3</th>
-    </tr>
-    <tr>
-      <td>Celda 1</td>
-      <td>Celda 2</td>
-      <td>Celda 3</td>
-    </tr>
-    <tr>
-      <td>Celda 1</td>
-      <td>Celda 2</td>
-      <td>Celda 3</td>
-    </tr>
-    <tr>
-      <td>Celda 1</td>
-      <td>Celda 2</td>
-      <td>Celda 3</td>
-    </tr>
-  </table>
-  `
-  cpmTabla.innerHTML = contenidoTabla;
+  promedioTotal = promedio(notas);
 }
 
 function mostrarNota() {
   let cpmTabla = document.getElementById('divTabla');
+
   let contenidoTabla = `
     <table>
       <thead>
         <tr>
+          <th>Índice</th>
           <th>Nota Registrada</th>
         </tr>
       </thead>
       <tbody>
   `;
 
-  let miNota;
   for (let i = 0; i < notas.length; i++) {
-    miNota = notas[i];
     contenidoTabla += `
       <tr>
-        <td>${miNota}</td>
+        <td>${i + 1}</td>
+        <td>${notas[i]}</td>
       </tr>
     `;
   }
 
-  contenidoTabla += '</tbody></table>';
+  contenidoTabla += '</tbody>';
+
+  if (notas.length === 5) {
+    contenidoTabla += `
+      <tfoot>
+        <tr>
+          <td>Suma Total:</td>
+          <td>${sumaTotal}</td>
+        </tr>
+        <tr>
+          <td>Promedio:</td>
+          <td>${promedioTotal}</td>
+        </tr>
+      </tfoot>
+    `;
+  }
+
+  contenidoTabla += '</table>';
+
   cpmTabla.innerHTML = contenidoTabla;
 }

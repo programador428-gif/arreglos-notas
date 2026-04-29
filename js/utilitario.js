@@ -36,3 +36,20 @@ function mostrarImagen(idComponente, rutaImagen) {
   componente.src = rutaImagen;
 
 }
+
+function limpiarInput(parametro) {
+  let componente;
+
+  if (parametro instanceof HTMLElement) {
+    componente = parametro;
+  } else {
+    componente = document.getElementById(parametro);
+  }
+
+  if (componente) {
+    componente.value = '';
+    componente.focus();
+  } else {
+    console.warn("No se pudo encontrar el componente para limpiar.");
+  }
+}
