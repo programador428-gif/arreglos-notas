@@ -132,6 +132,60 @@ body {
   border-color: white;
 }
 
+/* Estilos para la Tabla */
+#divTabla {
+  margin-top: 30px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin-top: 10px;
+}
+
+th {
+  background: rgba(255, 46, 136, 0.2);
+  color: var(--accent-pink);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+td {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--glass-border);
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+td:first-child {
+  border-radius: 12px 0 0 12px;
+}
+
+td:last-child {
+  border-radius: 0 12px 12px 0;
+}
+
+tr:hover td {
+  background: rgba(255, 46, 136, 0.1);
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+}
+
+#divTabla:empty::before {
+  content: 'No hay datos para mostrar';
+  display: block;
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+}
+
 @media (max-width: 600px) {
   .glass-card {
     padding: 30px 20px;

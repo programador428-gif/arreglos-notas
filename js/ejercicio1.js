@@ -44,3 +44,49 @@ function promedioNotas() {
   console.log(`Suma total: ${sumaTotal}`)
   console.log(`Promedio ${promedioNotas}`);
 }
+
+function generarTabla() {
+  let contenidoTabla = '';
+  let cpmTabla = document.getElementById('divTabla');
+  contenidoTabla += `
+    <table>
+    <tr>
+      <th>Cabecera 1</th>
+      <th>Cabecera 2</th>
+      <th>Cabecera 3</th>
+    </tr>
+    <tr>
+      <td>Celda 1</td>
+      <td>Celda 2</td>
+      <td>Celda 3</td>
+    </tr>
+    <tr>
+      <td>Celda 1</td>
+      <td>Celda 2</td>
+      <td>Celda 3</td>
+    </tr>
+    <tr>
+      <td>Celda 1</td>
+      <td>Celda 2</td>
+      <td>Celda 3</td>
+    </tr>
+  </table>
+  `
+  cpmTabla.innerHTML = contenidoTabla;
+}
+
+function mostrarNota() {
+  let cpmTabla = document.getElementById('divTabla');
+  let contenidoTabla = '<table>';
+  let miNota;
+  for (let i = 0; i < notas.length; i++) {
+    miNota = notas[i];
+    contenidoTabla += `
+      <tr>
+        <td>${miNota}</td>
+      </tr>
+    `
+  }
+  contenidoTabla += '</table>';
+  cpmTabla.innerHTML = contenidoTabla;
+}
